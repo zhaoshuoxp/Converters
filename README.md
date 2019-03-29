@@ -67,7 +67,7 @@ This script convert dropbox shared links to public so that it can be loaded by U
 
 #### Usage
 
-    ./FitHiC2bigInteract.sh fithic_out.txt <res, ex:5000> <p, optional, use P value instead of Q value for coloring> 
+    ./FitHiC2bigInteract.sh fithic_out.txt <res, e.g. 5000> <p, optional, use P value instead of Q value for coloring> 
 
 #### Output
 
@@ -81,7 +81,7 @@ This script convert dropbox shared links to public so that it can be loaded by U
 
 #### Usage
 
-    ./FitHiC2longrange.sh fithic_out.txt <res, ex:5000> <p, optional, use P value instead of Q value for coloring> 
+    ./FitHiC2longrange.sh fithic_out.txt <res, e.g. 5000> <p, optional, use P value instead of Q value for coloring> 
 
 #### Output
 
