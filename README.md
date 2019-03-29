@@ -27,7 +27,7 @@ This script is seperated from ChIPseq.sh
 
 #### Output
 
-* input.bam.bw
+* input.bw
 
   
 
