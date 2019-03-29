@@ -1,4 +1,4 @@
-﻿# Format Converters
+# Format Converters
 -----
 This repository has the following combined shell/awk/python scripts which can be used for format converting with common high-troughput sequencing data.
 
@@ -13,10 +13,12 @@ This repository has the following combined shell/awk/python scripts which can be
 
 
 > Requirements:
-awk, python3, bedtools, picard.jar, bgzip, tabix, [UCSC Genome Browser utility](http://hgdownload.soe.ucsc.edu/admin/exe/):bedGraphToBigWig, bedItemOverlapCount, gtfToGenePred, genePredToBed, bedClip, bedToBigBed.
+> awk, python3, bedtools, picard.jar, bgzip, tabix, [UCSC Genome Browser utility](http://hgdownload.soe.ucsc.edu/admin/exe/):bedGraphToBigWig, bedItemOverlapCount, gtfToGenePred, genePredToBed, bedClip, bedToBigBed.
+
 
 
 -----
+
 ## bam2bigwig.sh
 This script is seperated from ChIPseq.sh
 #### Usage
@@ -26,6 +28,8 @@ This script is seperated from ChIPseq.sh
 #### Output
 
 * input.bam.bw
+
+  
 
 -----
 ## BedGraph2bigwig.sh
@@ -42,6 +46,8 @@ hg19_len can be download by:
 
 * input.bw
 
+  
+
 ------
 ## dblnks_cvt.py
 This script convert dropbox shared links to public so that it can be loaded by UCSC Genome browser.
@@ -53,7 +59,9 @@ This script convert dropbox shared links to public so that it can be loaded by U
 
     https://dl.dropboxusercontent.com/s/id3ixx4beodi4jo/pooled_TCF21_filtered.bw
 
-------
+
+
+----
 
 ## FitHiC2bigInteract.sh
 
@@ -64,6 +72,8 @@ This script convert dropbox shared links to public so that it can be loaded by U
 #### Output
 
 * fithic_out.bb
+
+  
 
 ------
 
@@ -77,6 +87,8 @@ This script convert dropbox shared links to public so that it can be loaded by U
 
 * fithic_out.longrange
 
+  
+
 ------
 
 ## HiCpro2Juicebox.sh
@@ -89,6 +101,8 @@ This script comes from [HiCPro](https://github.com/nservant/HiC-Pro/blob/master/
 
 * test.hic
 
+  
+
 -----
 ## GTF_rmdup.sh
 This script removes transcript duplicates by converting to BED12 and sorting by column1,2,3,11,12. 
@@ -100,6 +114,8 @@ This script removes transcript duplicates by converting to BED12 and sorting by 
 
 * input_uniq.gtf
 
+  
+
 -----
 ## rmdup_rdm.sh
 This script removes alignment duplicates RANDOMLY (no SNP bias) by picard.jar. BAM file has to be sorted.
@@ -110,6 +126,8 @@ This script removes alignment duplicates RANDOMLY (no SNP bias) by picard.jar. B
 #### Output
 
 * sort_rm.bam
+
+  
 
 -----
 
