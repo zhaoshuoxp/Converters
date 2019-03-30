@@ -8,7 +8,7 @@ This repository has the following combined shell/awk/python scripts which can be
  * [FitHiC2bigInteract.sh](https://github.com/zhaoshuoxp/Converters#fithic2biginteractsh): FitHiC output to bigInteract (binary) for WashU Epigenome Browser visualization.
  * [FitHiC2longrange.sh](https://github.com/zhaoshuoxp/Converters#fithic2longrangesh): FitHiC output to longrange (text) for WashU Epigenome Browser visualization.
  * [HiCpro2Juicebox.sh](https://github.com/zhaoshuoxp/Converters#hicpro2juiceboxsh): HiCPro output to Juicebox for HiC/HiChIP interaction visualization.
- * [GTF_rmdup.sh](https://github.com/zhaoshuoxp/Converters#gtf_rmdupsh): deduplcate transcripts in GTF format.
+ * [GTF_rmdup.sh](https://github.com/zhaoshuoxp/Converters#gtf_rmdupsh): deduplicate transcripts in GTF format.
  * [rmdup_rdm.sh](https://github.com/zhaoshuoxp/Converters#rmdup_rdmsh): deduplicate alignments RANDOMLY by picard in BAM format.
 
 
