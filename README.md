@@ -1,6 +1,6 @@
 # Format Converters
 -----
-This repository has the following combined shell/awk/python scripts which can be used for format converting with common high-troughput sequencing data.
+This repository has the following combined shell/awk/python scripts which can be used for format converting with common high-throughput sequencing data.
 
  * [bam2bigwig.sh](https://github.com/zhaoshuoxp/Converters#bam2bigwigsh): BAM to bigWig for genome browser visualization.
  * [BedGraph2bigwig.sh](https://github.com/zhaoshuoxp/Converters#bedgraph2bigwigsh): BedGraph(output of MACS2) to bigWig for genome browser visualization.
@@ -9,7 +9,7 @@ This repository has the following combined shell/awk/python scripts which can be
  * [FitHiC2longrange.sh](https://github.com/zhaoshuoxp/Converters#fithic2longrangesh): FitHiC output to longrange (text) for WashU Epigenome Browser visualization.
  * [HiCpro2Juicebox.sh](https://github.com/zhaoshuoxp/Converters#hicpro2juiceboxsh): HiCPro output to Juicebox for HiC/HiChIP interaction visualization.
  * [GTF_rmdup.sh](https://github.com/zhaoshuoxp/Converters#gtf_rmdupsh): deduplcate transcripts in GTF format.
- * [rmdup_rdm.sh](https://github.com/zhaoshuoxp/Converters#rmdup_rdmsh): deduplcate alignments RANDOMLY by picard in BAM format.
+ * [rmdup_rdm.sh](https://github.com/zhaoshuoxp/Converters#rmdup_rdmsh): deduplicate alignments RANDOMLY by picard in BAM format.
 
 
 > Requirements:
@@ -20,7 +20,7 @@ This repository has the following combined shell/awk/python scripts which can be
 -----
 
 ## bam2bigwig.sh
-This script is seperated from ChIPseq.sh
+This script is separated from ChIPseq.sh
 #### Usage
 
     ./bam2bigwig.sh input.bam 
@@ -96,7 +96,7 @@ This script comes from [HiCPro](https://github.com/nservant/HiC-Pro/blob/master/
 #### Usage
 
     ./HiCpro2Juicebox.sh -i test.allValidPairs -g hg19 -j /path/to/juicer_tools.jar
-> -r|--resfrag somhow doesn't work. see [more](http://nservant.github.io/HiC-Pro/UTILS.html#hicpro2juicebox-sh).
+> -r|--resfrag somehow doesn't work. See [more](http://nservant.github.io/HiC-Pro/UTILS.html#hicpro2juicebox-sh).
 #### Output
 
 * test.hic
