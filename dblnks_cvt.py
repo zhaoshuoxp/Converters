@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
 #####################################
-# Usage:                            #
-# Manual:                           #
-#####################################
-
 import sys
 input_lnk  = sys.argv[1]
 lnk = input_lnk[0:-5]
