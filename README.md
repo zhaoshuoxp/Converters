@@ -65,35 +65,51 @@ This script convert dropbox shared links to public so that it can be loaded by U
 
 ----
 
-## FitHiC2bigInteract.sh
+## loop2bigInteract.sh
 
-#### Usage
+This script converts FitHiC or HiCCUPS output to bigInteract format for Genome Browser visualization. q value (FitHiC) and raw reads counts (HiCCUPs) will be used for color depth.
 
-    ./FitHiC2bigInteract.sh fithic_out.txt <res, i.e. 5000> <p, optional, use P value instead of Q value for coloring> 
+####Input
+
+FitHiC output (q value filtered), i.e all_10k_2m.spline_pass2.significants.txt
+
+HiCCUPs output, i.e. merged_loops.bedpe 
+
+#### Options
+
+help message can be shown by `loop2bigInteract.sh -h`
+
+    Usage: loop2bigInteract.sh -h | [-f -r <res>] <input file>
+    
+    ### INPUT: FitHiC or HiCCUPS output files ###
+    All results will be store in current (./) directory.
+    ### bedToBigBed/sortBed required ###
+    
+    	Options:
+    		-f input is FitHiC
+    		-r [int] resolution of FitHiC
+    		-c input is HiCCUPs
+    		-h Print this help message
+
+#### Example
+
+```shell
+# FitHiC output
+loop2bigInteract.sh -f -r 5000 all_10k_2m.spline_pass2.significants.txt
+# HiCCUPS output
+loop2bigInteract.sh -c merged_loops.bedpe 
+```
 
 #### Output
 
-* fithic_out.bb
-
-  
-
-------
-
-## FitHiC2longrange.sh
-
-#### Usage
-
-    ./FitHiC2longrange.sh fithic_out.txt <res, i.e. 5000> <p, optional, use P value instead of Q value for coloring> 
-
-#### Output
-
-* fithic_out.longrange
+* bigInteract file (.bb) with prefix kept will be stored in the current directory.
 
   
 
 ------
 
 ## HiCpro2Juicebox.sh
+
 This script comes from [HiCPro](https://github.com/nservant/HiC-Pro/blob/master/bin/utils/hicpro2juicebox.sh).
 #### Usage
 
