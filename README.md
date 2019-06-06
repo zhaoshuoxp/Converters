@@ -84,11 +84,11 @@ help message can be shown by `loop2bigInteract.sh -h`
     All results will be store in current (./) directory.
     ### bedToBigBed/sortBed required ###
     
-    	Options:
-    		-f input is FitHiC
-    		-r [int] resolution of FitHiC
-    		-c input is HiCCUPs
-    		-h Print this help message
+      Options:
+        -f input is FitHiC
+        -r [int] resolution of FitHiC
+        -c input is HiCCUPs
+        -h Print this help message
 
 #### Example
 
