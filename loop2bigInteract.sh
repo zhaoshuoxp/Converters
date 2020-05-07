@@ -62,8 +62,8 @@ hiccups(){
 }
 
 fithichip(){
-    # convert HiCCUPS output to interact BED5+13 format
-    grep -v ^# $1| awk -v OFS="\t" '{print $1,$2,$3,".",int($7),-log($24),".", "0",$4,$5,$6,".",".", $1,$2,$6,".","."}' > ${2}.temp
+    # convert FitHiChIP output to interact BED5+13 format
+    sed '1d' $1| awk -v OFS="\t" '{print $1,$2,$3,".",int($7),-log($24),".", "0",$4,$5,$6,".",".", $1,$2,$6,".","."}' > ${2}.temp
     max_q=$(awk 'BEGIN {max = 0} {if ($6!="inf" && $6+0> max) max=$6} END {print max}' ${2}.temp)
     # replace "inf" to max -log(q_value)
     awk -v OFS="\t" '{if ($6=="inf")$6='$max_q'}1' ${2}.temp |awk -v OFS="\t" '{if ($5>1000)$5=1000}1' > ${2}.temp2
@@ -91,6 +91,7 @@ main(){
     # get interact.as and chrom size files
     wget https://genome.ucsc.edu/goldenPath/help/examples/interact/interact.as
     wget http://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.chrom.sizes
+    #wget https://hgdownload-test.gi.ucsc.edu/goldenPath/hg38/bigZips/hg38.chrom.sizes
     # convert interact to biginteract
     bedToBigBed -as=interact.as -type=bed5+13 ${name}.temp3 hg19.chrom.sizes ${name}.bb
        
