@@ -104,7 +104,7 @@ if [ $# -lt 1 ];then
     exit 1
 fi
 
-while getopts "cfr:h" arg
+while getopts "cfpr:h" arg
 do
     case $arg in
         c) mod='hiccups';;
