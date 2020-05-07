@@ -109,7 +109,7 @@ do
     case $arg in
         c) mod='hiccups';;
         f) mod='fithic';;
-        p) mod='fithichip'
+        p) mod='fithichip';;
         r) res=$OPTARG;;
         h) help ;;
         ?) help
