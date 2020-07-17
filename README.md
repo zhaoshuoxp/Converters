@@ -163,7 +163,7 @@ This script converts mouse gene symbols to human by homological search. R and bi
 
 Text file of mouse gene symbols, a gene per row at first column.
 
-#### Output
+####Output
 
 input2hum.txt. The homolog human gene symbols are added to the beginning of each row.
 
