@@ -9,10 +9,11 @@ This repository has the following combined shell/awk/python scripts which can be
  * [HiCpro2Juicebox.sh](https://github.com/zhaoshuoxp/Converters#hicpro2juiceboxsh): HiCPro output to Juicebox for HiC/HiChIP interaction visualization.
  * [GTF_rmdup.sh](https://github.com/zhaoshuoxp/Converters#gtf_rmdupsh): deduplicate transcripts in GTF format.
  * [rmdup_rdm.sh](https://github.com/zhaoshuoxp/Converters#rmdup_rdmsh): deduplicate alignments RANDOMLY by picard in BAM format.
+ * [mus2hum.R](https://github.com/zhaoshuoxp/Converters#mus2humr): convert mouse gene symbols to human by homological search.
 
 
 > Requirements:
-> awk, python3, bedtools, picard.jar, bgzip, tabix, [UCSC Genome Browser utility](http://hgdownload.soe.ucsc.edu/admin/exe/):bedGraphToBigWig, bedItemOverlapCount, gtfToGenePred, genePredToBed, bedClip, bedToBigBed.
+> awk, python3, bedtools, picard.jar, bgzip, tabix, [UCSC Genome Browser utility](http://hgdownload.soe.ucsc.edu/admin/exe/):bedGraphToBigWig, bedItemOverlapCount, gtfToGenePred, genePredToBed, bedClip, bedToBigBed, R, biomaRt.
 
 [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu) [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
 
@@ -136,6 +137,7 @@ This script removes transcript duplicates by converting to BED12 and sorting by 
 -----
 ## rmdup_rdm.sh
 This script removes alignment duplicates RANDOMLY (no SNP bias) by picard.jar. BAM file has to be sorted.
+
 #### Usage
 
     ./rmdup_rdm.sh sort.bam sort_rm.bam
@@ -144,10 +146,31 @@ This script removes alignment duplicates RANDOMLY (no SNP bias) by picard.jar. B
 
 * sort_rm.bam
 
-  
+
+
+
+-----
+
+## mus2hum.R
+
+This script converts mouse gene symbols to human by homological search. R and biomaRt are required.
+
+#### Usage
+
+    ./mus2hum.R input.txt
+
+####Input
+
+Text file of mouse gene symbols, a gene per row at first column.
+
+#### Output
+
+input2hum.txt. The homolog human gene symbols are added to the beginning of each row.
+
+
 
 -----
 
 Author [@zhaoshuoxp](https://github.com/zhaoshuoxp)  
-Mar 27 2019  
+July 17 2020
 
