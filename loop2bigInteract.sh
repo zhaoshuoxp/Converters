@@ -55,7 +55,7 @@ fithic2longrange(){
 
 hiccups(){
     # convert HiCCUPS output to interact BED5+13 format
-    grep -v ^# $1| awk -v OFS="\t" '{print "chr"$1,$2,$3,$7,int($12),-log($17),".", "0","chr"$4,$5,$6,".",".", "chr"$1,$22,$23,".","."}' > ${2}.temp
+    grep -v ^# $1|sed 's/chr//g' awk -v OFS="\t" '{print "chr"$1,$2,$3,$7,int($12),-log($17),".", "0","chr"$4,$5,$6,".",".", "chr"$1,$22,$23,".","."}' > ${2}.temp
     max_q=$(awk 'BEGIN {max = 0} {if ($6!="inf" && $6+0> max) max=$6} END {print max}' ${2}.temp)
     # replace "inf" to max -log(q_value)
     awk -v OFS="\t" '{if ($6=="inf")$6='$max_q'}1' ${2}.temp |awk -v OFS="\t" '{if ($5>1000)$5=1000}1' > ${2}.temp2
