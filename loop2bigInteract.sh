@@ -4,6 +4,10 @@
 which bedToBigBed &>/dev/null || { echo "bedToBigBed not found! Download http://hgdownload.soe.ucsc.edu/admin/exe"; exit 1; }
 which sortBed &>/dev/null || { echo "bedtools not found!"; exit 1; }
 
+hg38.size='https://hgdownload-test.gi.ucsc.edu/goldenPath/hg38/bigZips/hg38.chrom.sizes'
+hg19.size='http://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.chrom.sizes'
+wget https://genome.ucsc.edu/goldenPath/help/examples/interact/interact.as
+
 # help message
 help(){
 	cat <<-EOF
@@ -55,7 +59,7 @@ fithic2longrange(){
 
 hiccups(){
     # convert HiCCUPS output to interact BED5+13 format
-    grep -v ^# $1|sed 's/chr//g' awk -v OFS="\t" '{print "chr"$1,$2,$3,$7,int($12),-log($17),".", "0","chr"$4,$5,$6,".",".", "chr"$1,$22,$23,".","."}' > ${2}.temp
+    grep -v ^# $1|sed 's/chr//g' | awk -v OFS="\t" '{print "chr"$1,$2,$3,$7,int($12),-log($17),".", "0","chr"$4,$5,$6,".",".", "chr"$1,$22,$23,".","."}' > ${2}.temp
     max_q=$(awk 'BEGIN {max = 0} {if ($6!="inf" && $6+0> max) max=$6} END {print max}' ${2}.temp)
     # replace "inf" to max -log(q_value)
     awk -v OFS="\t" '{if ($6=="inf")$6='$max_q'}1' ${2}.temp |awk -v OFS="\t" '{if ($5>1000)$5=1000}1' > ${2}.temp2
@@ -88,16 +92,13 @@ main(){
     
     # sort
     sortBed -i ${name}.temp2 > ${name}.temp3
-    # get interact.as and chrom size files
-    wget https://genome.ucsc.edu/goldenPath/help/examples/interact/interact.as
-    wget http://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.chrom.sizes
-    #wget https://hgdownload-test.gi.ucsc.edu/goldenPath/hg38/bigZips/hg38.chrom.sizes
+    curl -s $hg38.size  > chromsize
     # convert interact to biginteract
-    bedToBigBed -as=interact.as -type=bed5+13 ${name}.temp3 hg19.chrom.sizes ${name}.bb
+    bedToBigBed -as=interact.as -type=bed5+13 ${name}.temp3 chromsize ${name}.bb
        
     # clean
     rm ${name}.temp ${name}.temp2 ${name}.temp3 
-    rm interact.as hg19.chrom.sizes 
+    rm interact.as chromsize 
 }
 
 if [ $# -lt 1 ];then
