@@ -4,7 +4,6 @@ This repository has the following combined shell/awk/python scripts which can be
 
  * [bam2bigwig.sh](https://github.com/zhaoshuoxp/Converters#bam2bigwigsh): BAM to bigWig for genome browser visualization.
  * [BedGraph2bigwig.sh](https://github.com/zhaoshuoxp/Converters#bedgraph2bigwigsh): BedGraph(output of MACS2) to bigWig for genome browser visualization.
- * [dblnks_cvt.py](https://github.com/zhaoshuoxp/Converters#dblnks_cvtpy): a python script converting dopbox links to public.
  * [loop2bigInteract.sh](https://github.com/zhaoshuoxp/Converters#loop2biginteractsh): FitHiC and HiCCUPs output to bigInteract format for WashU Epigenome Browser visualization.
  * [HiCpro2Juicebox.sh](https://github.com/zhaoshuoxp/Converters#hicpro2juiceboxsh): HiCPro output to Juicebox for HiC/HiChIP interaction visualization.
  * [GTF_rmdup.sh](https://github.com/zhaoshuoxp/Converters#gtf_rmdupsh): deduplicate transcripts in GTF format.
@@ -49,19 +48,6 @@ hg19_len can be download by:
 * input.bw
 
   
-
-------
-## dblnks_cvt.py
-This script convert dropbox shared links to public so that it can be loaded by UCSC Genome browser.
-#### Usage
-
-    ./dblnks_cvt.py https://www.dropbox.com/s/id3ixx4beodi4jo/pooled_TCF21_filtered.bw?dl=0
-
-#### Output
-
-    https://dl.dropboxusercontent.com/s/id3ixx4beodi4jo/pooled_TCF21_filtered.bw
-
-
 
 ----
 
@@ -117,7 +103,7 @@ This script comes from [HiCPro](https://github.com/nservant/HiC-Pro/blob/master/
 > -r|--resfrag somehow doesn't work. See [more](http://nservant.github.io/HiC-Pro/UTILS.html#hicpro2juicebox-sh).
 #### Output
 
-* test.hic
+* .hic file
 
   
 
